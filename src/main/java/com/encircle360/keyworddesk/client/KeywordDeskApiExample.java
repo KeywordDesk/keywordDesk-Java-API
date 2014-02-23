@@ -28,7 +28,7 @@ public class KeywordDeskApiExample {
         String[] fields = new String[1];
         fields[0] = "searchVolume"; // in this example we only need the searchVolume
 
-        KeywordDeskApiService apiService = new KeywordDeskApiService("FabianRossbacher", "crawlme2014");
+        KeywordDeskApiService apiService = new KeywordDeskApiService("USERNAME", "PASSWORD");
 
         // we could also use a token to login, if we already have one
         // KeywordDeskApiService apiService = new KeywordDeskApiService("YOUR-TOKEN-HERE");
