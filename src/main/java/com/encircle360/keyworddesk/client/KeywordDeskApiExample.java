@@ -1,8 +1,11 @@
 package com.encircle360.keyworddesk.client;
 
+import com.encircle360.keyworddesk.client.pojos.Keyword;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import com.encircle360.keyworddesk.client.services.KeywordDeskApiService;
+
+import java.util.ArrayList;
 
 /**
  * Class wich holds the main method. This is our entry point.
@@ -20,13 +23,13 @@ public class KeywordDeskApiExample {
     public static void main(String[] args) {
 
         // some dummy keywords
-        String[] keywords = new String[2];
-        keywords[0] = "test";
-        keywords[1] = "handyvertrag";
+        ArrayList<String> keywords = new ArrayList<>();
+        keywords.add("test");
+        keywords.add("handyvertrag");
 
         // fields you want to get on the given keywords
-        String[] fields = new String[1];
-        fields[0] = "searchVolume"; // in this example we only need the searchVolume
+        ArrayList<String> fields = new ArrayList<>();
+        fields.add("searchVolume"); // in this example we only need the searchVolume
 
         KeywordDeskApiService apiService = new KeywordDeskApiService("USERNAME", "PASSWORD");
 
@@ -34,15 +37,10 @@ public class KeywordDeskApiExample {
         // KeywordDeskApiService apiService = new KeywordDeskApiService("YOUR-TOKEN-HERE");
 
 
-        JSONArray keywordData = apiService.getKeywordData(keywords, fields);
-        Object[] keywordDataArray = keywordData.toArray();
-        for (Object keyword : keywordDataArray) {
+        ArrayList<Keyword> keywordList = apiService.getKeywordData(keywords, fields);
+        for (Keyword keyword : keywordList) {
 
-            JSONObject jsonKeyword = (JSONObject) keyword;
-            Long searchVolume = jsonKeyword.getLong("searchVolume");
-            String keywordName = jsonKeyword.getString("keyword");
-
-            System.out.println("Searchvolume of keyword '" + keywordName + "' is " + searchVolume.toString());
+            System.out.println("Searchvolume of keyword '" + keyword.getKeyword() + "' is " + keyword.getSearchVolume());
         }
     }
 }

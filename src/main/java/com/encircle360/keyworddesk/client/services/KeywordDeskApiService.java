@@ -1,5 +1,7 @@
 package com.encircle360.keyworddesk.client.services;
 
+import com.encircle360.keyworddesk.client.pojos.Keyword;
+import com.encircle360.keyworddesk.client.pojos.KeywordRequest;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.commons.io.IOUtils;
@@ -11,6 +13,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The example KeywordDesk API Service class. Use this class as example for communication with our api.
@@ -118,38 +122,57 @@ public class KeywordDeskApiService {
      *
      * @param keywords
      * @param fieldsToGet
-     * @return a JSONArray wich holds all the keywordobjects with the requested data filled in.
+     * @return a ArrayList wich holds all the keyword-objects with the requested data filled in.
      */
-    public JSONArray getKeywordData(String[] keywords, String[] fieldsToGet) {
-        JSONArray jsonArray = new JSONArray();
-        JSONObject keywordObject = null;
-        JSONArray jsonResultArray = null;
+    public ArrayList<Keyword> getKeywordData(List<String> keywords, List<String> fieldsToGet) {
+        ArrayList<KeywordRequest> keywordRequestList = new ArrayList<>();
+        KeywordRequest keywordRequest = null;
+        ArrayList<Keyword> keywordResultList = null;
 
         for (String keyword : keywords) {
-            keywordObject = new JSONObject();
+            keywordRequest = new KeywordRequest();
+            keywordRequest.setKeyword(keyword);
 
-            // create jsonobject for each keyword
-            keywordObject.put("keyword", keyword);
-
-            // add wanted fields to json object
+            // add wanted fields to request object
             for (String field : fieldsToGet) {
-                keywordObject.put(field, true);
+                switch (field) {
+                    case "searchVolume":
+                        keywordRequest.setSearchVolume(true);
+                        break;
+
+                    case "competition":
+                        keywordRequest.setCompetition(true);
+                        break;
+
+                    case "suggestedBid":
+                        keywordRequest.setSuggestedBid(true);
+                        break;
+
+                    case "googleResultCount":
+                        keywordRequest.setGoogleResultCount(true);
+                        break;
+
+                    case "googleInTitleCount":
+                        keywordRequest.setGoogleInTitleCount(true);
+                }
             }
 
-            // add ready json object to jsonArray
-            jsonArray.add(keywordObject);
+            // add ready keywordRequest object to list
+            keywordRequestList.add(keywordRequest);
         }
 
-        String jsonString = jsonArray.toString();
+        String jsonString = JSONArray.fromObject(keywordRequestList).toString();
 
         try {
             String responseContent = this.sendHttpPost(this.getUrlApiBase() + "/getKeywordData", jsonString);
-            jsonResultArray = JSONArray.fromObject(responseContent);
+            JSONArray jsonArray = JSONArray.fromObject(responseContent);
+            keywordResultList = (ArrayList<Keyword>) JSONArray.toCollection(jsonArray, Keyword.class);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return jsonResultArray;
+        return keywordResultList;
     }
 
     public String getUrlApiLogin() {
