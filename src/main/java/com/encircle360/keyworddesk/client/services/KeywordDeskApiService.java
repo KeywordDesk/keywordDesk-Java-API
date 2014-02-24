@@ -175,6 +175,28 @@ public class KeywordDeskApiService {
         return keywordResultList;
     }
 
+    /**
+     * Gets the keyword data for the requested keywords by their keyword-request-settings.
+     *
+     * @param keywordRequestList
+     * @return a list of keywords wich were requested
+     */
+    public ArrayList<Keyword> getKeywordData(List<KeywordRequest> keywordRequestList) {
+        ArrayList<Keyword> keywordResultList = new ArrayList<>();
+        String jsonString = JSONArray.fromObject(keywordRequestList).toString();
+
+        try {
+            String responseContent = this.sendHttpPost(this.getUrlApiBase() + "/getKeywordData", jsonString);
+            JSONArray jsonArray = JSONArray.fromObject(responseContent);
+            keywordResultList = (ArrayList<Keyword>) JSONArray.toCollection(jsonArray, Keyword.class);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return keywordResultList;
+    }
+
     public String getUrlApiLogin() {
         return urlApiLogin;
     }
