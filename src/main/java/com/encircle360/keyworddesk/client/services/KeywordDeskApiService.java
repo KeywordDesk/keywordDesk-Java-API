@@ -125,7 +125,7 @@ public class KeywordDeskApiService {
      * @return a ArrayList wich holds all the keyword-objects with the requested data filled in.
      */
     public ArrayList<Keyword> getKeywordData(List<String> keywords, List<String> fieldsToGet) {
-        ArrayList<KeywordRequest> keywordRequestList = new ArrayList<>();
+        ArrayList<KeywordRequest> keywordRequestList = new ArrayList<KeywordRequest>();
         KeywordRequest keywordRequest = null;
         ArrayList<Keyword> keywordResultList = null;
 
@@ -182,7 +182,7 @@ public class KeywordDeskApiService {
      * @return a list of keywords wich were requested
      */
     public ArrayList<Keyword> getKeywordData(List<KeywordRequest> keywordRequestList) {
-        ArrayList<Keyword> keywordResultList = new ArrayList<>();
+        ArrayList<Keyword> keywordResultList = new ArrayList<Keyword>();
         String jsonString = JSONArray.fromObject(keywordRequestList).toString();
 
         try {

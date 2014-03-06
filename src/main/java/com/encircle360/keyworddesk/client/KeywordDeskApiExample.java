@@ -23,12 +23,12 @@ public class KeywordDeskApiExample {
     public static void main(String[] args) {
 
         // some dummy keywords
-        ArrayList<String> keywords = new ArrayList<>();
+        ArrayList<String> keywords = new ArrayList<String>();
         keywords.add("test");
         keywords.add("handyvertrag");
 
         // fields you want to get on the given keywords
-        ArrayList<String> fields = new ArrayList<>();
+        ArrayList<String> fields = new ArrayList<String>();
         fields.add("searchVolume"); // in this example we only need the searchVolume
 
         KeywordDeskApiService apiService = new KeywordDeskApiService("USERNAME", "PASSWORD");
