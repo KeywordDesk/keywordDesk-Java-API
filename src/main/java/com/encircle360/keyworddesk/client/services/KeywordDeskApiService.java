@@ -25,6 +25,11 @@ import java.util.List;
  */
 public class KeywordDeskApiService {
 
+    public static final Integer COUNT_TYPE_ALL = 0;
+    public static final Integer COUNT_TYPE_SHORTTAIL = 1;
+    public static final Integer COUNT_TYPE_LONGTAIL = 2;
+    public static final Integer COUNT_TYPE_HAVE_PLANNER_DATA = 3;
+
     private String token;
 
     // the url for the api login
@@ -195,6 +200,29 @@ public class KeywordDeskApiService {
         }
 
         return keywordResultList;
+    }
+
+    /**
+     * Gets the count of keyword of a special type in the keyworddesk database.
+     *
+     * @param countType
+     * @return the count of the requested type or null if the api call failed
+     */
+    public Integer getKeywordCount(Integer countType) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("countType", countType);
+        String jsonString = jsonObject.toString();
+        Integer count = null;
+
+        try {
+            String responseContent = this.sendHttpPost(this.getUrlApiBase() + "/getKeywordCount", jsonString);
+            JSONObject responseObject = JSONObject.fromObject(responseContent);
+            count = (Integer) responseObject.get("count");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return count;
     }
 
     public String getUrlApiLogin() {

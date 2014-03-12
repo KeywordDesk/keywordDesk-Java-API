@@ -36,6 +36,8 @@ public class KeywordDeskApiExample {
         // we could also use a token to login, if we already have one
         // KeywordDeskApiService apiService = new KeywordDeskApiService("YOUR-TOKEN-HERE");
 
+        Integer count = apiService.getKeywordCount(KeywordDeskApiService.COUNT_TYPE_ALL);
+        System.out.println("Keywords in database: " + count);
 
         ArrayList<Keyword> keywordList = apiService.getKeywordData(keywords, fields);
         for (Keyword keyword : keywordList) {
