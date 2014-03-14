@@ -1,6 +1,7 @@
 package com.encircle360.keyworddesk.client.services;
 
 import com.encircle360.keyworddesk.client.pojos.Keyword;
+import com.encircle360.keyworddesk.client.pojos.KeywordFilter;
 import com.encircle360.keyworddesk.client.pojos.KeywordRequest;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -223,6 +224,29 @@ public class KeywordDeskApiService {
         }
 
         return count;
+    }
+
+    /**
+     * Gets a list of keywords wich match the given filter.
+     *
+     * @param filter
+     * @return an ArrayList wich holds all the keyword-objects.
+     */
+    public ArrayList<Keyword> filterKeywords(KeywordFilter filter) {
+        String jsonString = filter.toJSON();
+        ArrayList<Keyword> keywordResultList = null;
+
+        try {
+            String responseContent = this.sendHttpPost(this.getUrlApiBase() + "/filterKeywords", jsonString);
+            JSONArray jsonArray = JSONArray.fromObject(responseContent);
+            keywordResultList = (ArrayList<Keyword>) JSONArray.toCollection(jsonArray, Keyword.class);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return keywordResultList;
     }
 
     public String getUrlApiLogin() {

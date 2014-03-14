@@ -1,6 +1,7 @@
 package com.encircle360.keyworddesk.client;
 
 import com.encircle360.keyworddesk.client.pojos.Keyword;
+import com.encircle360.keyworddesk.client.pojos.KeywordFilter;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import com.encircle360.keyworddesk.client.services.KeywordDeskApiService;
@@ -39,9 +40,17 @@ public class KeywordDeskApiExample {
         Integer count = apiService.getKeywordCount(KeywordDeskApiService.COUNT_TYPE_ALL);
         System.out.println("Keywords in database: " + count);
 
+        KeywordFilter keywordFilter = new KeywordFilter();
+        keywordFilter.setKeyword("handy kaufen");
+        keywordFilter.setOpKeyword("ILike");
+
+        ArrayList<Keyword> filteredKeywordList = apiService.filterKeywords(keywordFilter);
+        for(Keyword keyword : filteredKeywordList) {
+            System.out.println("Filtered keyword: " + keyword.getKeyword());
+        }
+
         ArrayList<Keyword> keywordList = apiService.getKeywordData(keywords, fields);
         for (Keyword keyword : keywordList) {
-
             System.out.println("Searchvolume of keyword '" + keyword.getKeyword() + "' is " + keyword.getSearchVolume());
         }
     }
