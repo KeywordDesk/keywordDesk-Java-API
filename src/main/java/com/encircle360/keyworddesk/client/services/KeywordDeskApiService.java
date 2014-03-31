@@ -42,6 +42,12 @@ public class KeywordDeskApiService {
     public static final String FILTER_IENDSWITH = "IEndsWith";
     public static final String FILTER_ENDSWITH = "EndsWith";
 
+    public static final String FIELD_SEARCHVOLUME = "searchVolume";
+    public static final String FIELD_SUGGESTEDBID = "suggestedBid"; // also known as CPC
+    public static final String FIELD_COMPETITION = "competition";
+    public static final String FIELD_GOOGLE_RESULT_COUNT = "googleResultCount";
+    public static final String FIELD_GOOGLE_INTITLE_COUNT = "googleInTitleCount";
+
     private String token;
 
     // the url for the api login

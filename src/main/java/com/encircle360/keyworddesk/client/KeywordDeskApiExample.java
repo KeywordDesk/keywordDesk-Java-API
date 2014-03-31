@@ -30,7 +30,7 @@ public class KeywordDeskApiExample {
 
         // fields you want to get on the given keywords
         ArrayList<String> fields = new ArrayList<String>();
-        fields.add("searchVolume"); // in this example we only need the searchVolume
+        fields.add(KeywordDeskApiService.FIELD_SEARCHVOLUME); // in this example we only need the searchVolume
 
         KeywordDeskApiService apiService = new KeywordDeskApiService("USERNAME", "PASSWORD");
 
