@@ -3,6 +3,8 @@ package com.encircle360.keyworddesk.client.pojos;
 import net.sf.json.JSON;
 import net.sf.json.JSONObject;
 
+import java.util.ArrayList;
+
 /**
  * KeywordFilter POJO. This class represents a keyword filter.
  *
@@ -39,6 +41,8 @@ public class KeywordFilter {
     private String opCompetition;
     private String opTermCount;
 
+    // fields to get from the request
+    private ArrayList<String> fieldsToGet;
 
     public Integer getMax() {
         return max;
@@ -232,6 +236,14 @@ public class KeywordFilter {
         this.order = order;
     }
 
+    public ArrayList<String> getFieldsToGet() {
+        return fieldsToGet;
+    }
+
+    public void setFieldsToGet(ArrayList<String> fieldsToGet) {
+        this.fieldsToGet = fieldsToGet;
+    }
+
     /**
      * Creates a json string for a keyworddesk filter request.
      *
@@ -274,6 +286,10 @@ public class KeywordFilter {
         jsonObject.put("listDistinct", this.getListDistinct());
         jsonObject.put("sort", this.getSort());
         jsonObject.put("order", this.getOrder());
+
+        // add fields to get to json
+        jsonObject.put("fieldsRequested", this.getFieldsToGet());
+
         String jsonString = jsonObject.toString();
 
         return jsonString;
