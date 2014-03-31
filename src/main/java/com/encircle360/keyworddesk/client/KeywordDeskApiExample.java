@@ -42,7 +42,7 @@ public class KeywordDeskApiExample {
 
         KeywordFilter keywordFilter = new KeywordFilter();
         keywordFilter.setKeyword("handy kaufen");
-        keywordFilter.setOpKeyword("ILike");
+        keywordFilter.setOpKeyword(KeywordDeskApiService.FILTER_ILIKE);
 
         ArrayList<Keyword> filteredKeywordList = apiService.filterKeywords(keywordFilter);
         for(Keyword keyword : filteredKeywordList) {

@@ -31,6 +31,17 @@ public class KeywordDeskApiService {
     public static final Integer COUNT_TYPE_LONGTAIL = 2;
     public static final Integer COUNT_TYPE_HAVE_PLANNER_DATA = 3;
 
+    public static final String FILTER_ILIKE = "ILike";
+    public static final String FILTER_NOTILIKE = "NotILike";
+    public static final String FILTER_LIKE = "Like";
+    public static final String FILTER_NOTLIKE = "NotLike";
+    public static final String FILTER_EQUAL = "Equal";
+    public static final String FILTER_NOTEQUAL = "NotEqual";
+    public static final String FILTER_IBEGINSWITH = "IBeginsWith";
+    public static final String FILTER_BEGINSWITH = "BeginsWith";
+    public static final String FILTER_IENDSWITH = "IEndsWith";
+    public static final String FILTER_ENDSWITH = "EndsWith";
+
     private String token;
 
     // the url for the api login
