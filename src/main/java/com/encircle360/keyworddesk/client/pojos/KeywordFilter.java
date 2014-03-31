@@ -14,6 +14,7 @@ public class KeywordFilter {
     // values
     private Integer max;
     private String sort;
+    private String order;
     private Boolean listDistinct;
     private String keyword;
     private Integer googleResultCount;
@@ -223,6 +224,14 @@ public class KeywordFilter {
         this.sort = sort;
     }
 
+    public String getOrder() {
+        return order;
+    }
+
+    public void setOrder(String order) {
+        this.order = order;
+    }
+
     /**
      * Creates a json string for a keyworddesk filter request.
      *
@@ -264,6 +273,7 @@ public class KeywordFilter {
         jsonObject.put("max", this.getMax());
         jsonObject.put("listDistinct", this.getListDistinct());
         jsonObject.put("sort", this.getSort());
+        jsonObject.put("order", this.getOrder());
         String jsonString = jsonObject.toString();
 
         return jsonString;
