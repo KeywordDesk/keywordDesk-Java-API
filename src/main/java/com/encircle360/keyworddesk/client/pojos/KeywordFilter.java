@@ -9,9 +9,29 @@ import java.util.ArrayList;
  * KeywordFilter POJO. This class represents a keyword filter.
  *
  * @author <a href="mailto:p.huetter@encircle360.com">Patrick Huetter</a>
- * @version 0.1 ALPHA
  */
 public class KeywordFilter {
+
+    public static final String FILTER_TEXT_ILIKE = "ILike";
+    public static final String FILTER_TEXT_NOT_ILIKE = "NotILike";
+    public static final String FILTER_TEXT_LIKE = "Like";
+    public static final String FILTER_TEXT_NOT_LIKE = "NotLike";
+    public static final String FILTER_TEXT_EQUAL = "Equal";
+    public static final String FILTER_TEXT_NOT_EQUAL = "NotEqual";
+    public static final String FILTER_TEXT_IBEGINS_WITH = "IBeginsWith";
+    public static final String FILTER_TEXT_BEGINS_WITH = "BeginsWith";
+    public static final String FILTER_TEXT_IENDS_WITH = "IEndsWith";
+    public static final String FILTER_TEXT_ENDS_WITH = "EndsWith";
+
+    public static final String FILTER_NUMBER_EQUAL = "Equal";
+    public static final String FILTER_NUMBER_NOT_EQUAL = "NotEqual";
+    public static final String FILTER_NUMBER_LESS_THAN = "LessThan";
+    public static final String FILTER_NUMBER_LESS_THAN_EQUALS = "LessThanEquals";
+    public static final String FILTER_NUMBER_GREATER_THAN = "GreaterThan";
+    public static final String FILTER_NUMBER_GREATER_THAN_EQUALS = "GreaterThanEquals";
+    public static final String FILTER_NUMBER_BETWEEN = "Between";
+    public static final String FILTER_NUMBER_IS_NULL = "IsNull";
+    public static final String FILTER_NUMBER_IS_NOT_NULL = "IsNotNull";
 
     // values
     private Integer max;

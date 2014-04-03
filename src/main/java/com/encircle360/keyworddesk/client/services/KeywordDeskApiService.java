@@ -22,7 +22,6 @@ import java.util.List;
  * This class acts as a API-Wrapper.
  *
  * @author <a href="mailto:p.huetter@encircle360.com">Patrick Huetter</a>
- * @version 0.1 ALPHA
  */
 public class KeywordDeskApiService {
 
@@ -30,17 +29,6 @@ public class KeywordDeskApiService {
     public static final Integer COUNT_TYPE_SHORTTAIL = 1;
     public static final Integer COUNT_TYPE_LONGTAIL = 2;
     public static final Integer COUNT_TYPE_HAVE_PLANNER_DATA = 3;
-
-    public static final String FILTER_ILIKE = "ILike";
-    public static final String FILTER_NOTILIKE = "NotILike";
-    public static final String FILTER_LIKE = "Like";
-    public static final String FILTER_NOTLIKE = "NotLike";
-    public static final String FILTER_EQUAL = "Equal";
-    public static final String FILTER_NOTEQUAL = "NotEqual";
-    public static final String FILTER_IBEGINSWITH = "IBeginsWith";
-    public static final String FILTER_BEGINSWITH = "BeginsWith";
-    public static final String FILTER_IENDSWITH = "IEndsWith";
-    public static final String FILTER_ENDSWITH = "EndsWith";
 
     public static final String FIELD_SEARCHVOLUME = "searchVolume";
     public static final String FIELD_SUGGESTEDBID = "suggestedBid"; // also known as CPC

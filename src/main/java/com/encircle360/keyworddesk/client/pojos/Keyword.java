@@ -4,7 +4,6 @@ package com.encircle360.keyworddesk.client.pojos;
  * Keyword POJO. This class represents a keyword with its data.
  *
  * @author <a href="mailto:p.huetter@encircle360.com">Patrick Huetter</a>
- * @version 0.1 ALPHA
  */
 public class Keyword {
 

@@ -12,7 +12,6 @@ import java.util.ArrayList;
  * Class wich holds the main method. This is our entry point.
  *
  * @author <a href="mailto:p.huetter@encircle360.com">Patrick Huetter</a>
- * @version 0.1 ALPHA
  */
 public class KeywordDeskApiExample {
 
@@ -42,7 +41,7 @@ public class KeywordDeskApiExample {
 
         KeywordFilter keywordFilter = new KeywordFilter();
         keywordFilter.setKeyword("handy kaufen");
-        keywordFilter.setOpKeyword(KeywordDeskApiService.FILTER_ILIKE);
+        keywordFilter.setOpKeyword(KeywordFilter.FILTER_TEXT_ILIKE);
         keywordFilter.setFieldsToGet(fields);
 
         ArrayList<Keyword> filteredKeywordList = apiService.filterKeywords(keywordFilter);
