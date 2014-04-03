@@ -22,15 +22,15 @@ public class KeywordFilter {
     public static final String FILTER_TEXT_IENDS_WITH = "IEndsWith";
     public static final String FILTER_TEXT_ENDS_WITH = "EndsWith";
 
-    public static final String FILTER_NUMBER_EQUAL = "Equal";
-    public static final String FILTER_NUMBER_NOT_EQUAL = "NotEqual";
-    public static final String FILTER_NUMBER_LESS_THAN = "LessThan";
-    public static final String FILTER_NUMBER_LESS_THAN_EQUALS = "LessThanEquals";
-    public static final String FILTER_NUMBER_GREATER_THAN = "GreaterThan";
-    public static final String FILTER_NUMBER_GREATER_THAN_EQUALS = "GreaterThanEquals";
-    public static final String FILTER_NUMBER_BETWEEN = "Between";
-    public static final String FILTER_NUMBER_IS_NULL = "IsNull";
-    public static final String FILTER_NUMBER_IS_NOT_NULL = "IsNotNull";
+    public static final String FILTER_NUMERIC_EQUAL = "Equal";
+    public static final String FILTER_NUMERIC_NOT_EQUAL = "NotEqual";
+    public static final String FILTER_NUMERIC_LESS_THAN = "LessThan";
+    public static final String FILTER_NUMERIC_LESS_THAN_EQUALS = "LessThanEquals";
+    public static final String FILTER_NUMERIC_GREATER_THAN = "GreaterThan";
+    public static final String FILTER_NUMERIC_GREATER_THAN_EQUALS = "GreaterThanEquals";
+    public static final String FILTER_NUMERIC_BETWEEN = "Between";
+    public static final String FILTER_NUMERIC_IS_NULL = "IsNull";
+    public static final String FILTER_NUMERIC_IS_NOT_NULL = "IsNotNull";
 
     // values
     private Integer max;
@@ -286,82 +286,54 @@ public class KeywordFilter {
 
         if (this.getGoogleResultCount() != null) {
             filterObject.put("googleResultCount", this.getGoogleResultCount().toString());
-        } else {
-            filterObject.put("googleResultCount", "");
         }
 
         if (this.getGoogleResultCountTo() != null) {
             filterObject.put("googleResultCountTo", this.getGoogleResultCountTo().toString());
-        } else {
-            filterObject.put("googleResultCountTo", "");
         }
 
         if (this.getSearchVolume() != null) {
             filterObject.put("searchVolume", this.getSearchVolume().toString());
-        } else {
-            filterObject.put("searchVolume", "");
         }
 
         if (this.getSearchVolumeTo() != null) {
             filterObject.put("searchVolumeTo", this.getSearchVolumeTo().toString());
-        } else {
-            filterObject.put("searchVolumeTo", "");
         }
 
         if (this.getSuggestedBid() != null) {
             filterObject.put("suggestedBid", this.getSuggestedBid().toString());
-        } else {
-            filterObject.put("suggestedBid", "");
         }
 
         if (this.getSuggestedBidTo() != null) {
             filterObject.put("suggestedBidTo", this.getSuggestedBidTo().toString());
-        } else {
-            filterObject.put("suggestedBidTo", "");
         }
 
         if (this.getGoogleInTitleCount() != null) {
             filterObject.put("googleInTitleCount", this.getGoogleInTitleCount().toString());
-        } else {
-            filterObject.put("googleInTitleCount", "");
         }
 
         if (this.getGoogleInTitleCountTo() != null) {
             filterObject.put("googleInTitleCountTo", this.getGoogleInTitleCountTo().toString());
-        } else {
-            filterObject.put("googleInTitleCountTo", "");
         }
 
         if (this.getCompetition() != null) {
             filterObject.put("competition", this.getCompetition().toString());
-        } else {
-            filterObject.put("competition", "");
         }
 
         if (this.getCompetitionTo() != null) {
             filterObject.put("competitionTo", this.getCompetitionTo().toString());
-        } else {
-            filterObject.put("competitionTo", "");
         }
 
         if (this.getTermCount() != null) {
             filterObject.put("termCount", this.getTermCountTo().toString());
-        } else {
-            filterObject.put("termCount", "");
         }
 
-        if(this.getTermCountTo() != null) {
+        if (this.getTermCountTo() != null) {
             filterObject.put("termCountTo", this.getTermCountTo().toString());
-        } else {
-            filterObject.put("termCountTo", "");
         }
 
         // add operations to filterObject
         filterObject.put("op", operationsObject);
-
-        // test
-/*        filterObject.put("op.searchVolume", this.getOpSearchVolume());
-        filterObject.put("op.keyword", this.getOpKeyword());*/
 
         // create final json object for a filter request
         JSONObject jsonObject = new JSONObject();
@@ -370,16 +342,6 @@ public class KeywordFilter {
         jsonObject.put("listDistinct", this.getListDistinct());
         jsonObject.put("sort", this.getSort());
         jsonObject.put("order", this.getOrder());
-
-        // test
-/*
-        jsonObject.put("filter.op.searchVolume", this.getOpSearchVolume());
-        jsonObject.put("filter.op.keyword", this.getOpKeyword());
-        jsonObject.put("filter.keyword", this.getKeyword());
-        jsonObject.put("filter.searchVolume", this.getSearchVolume().toString());
-        jsonObject.put("filter.searchVolumeTo", this.getSearchVolumeTo().toString());
-        jsonObject.put("filter.keyword", this.getKeyword());*/
-
 
         // add fields to get to json
         jsonObject.put("fieldsRequested", this.getFieldsToGet());
