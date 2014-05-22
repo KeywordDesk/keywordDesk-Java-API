@@ -146,25 +146,39 @@ public class KeywordDeskApiService {
 
             // add wanted fields to request object
             for (String field : fieldsToGet) {
-                switch (field) {
-                    case "searchVolume":
-                        keywordRequest.setSearchVolume(true);
-                        break;
 
-                    case "competition":
-                        keywordRequest.setCompetition(true);
-                        break;
+                /** strings in switch are not supported in java < version 7
+                 switch (field) {
+                 case "searchVolume":
+                 keywordRequest.setSearchVolume(true);
+                 break;
 
-                    case "suggestedBid":
-                        keywordRequest.setSuggestedBid(true);
-                        break;
+                 case "competition":
+                 keywordRequest.setCompetition(true);
+                 break;
 
-                    case "googleResultCount":
-                        keywordRequest.setGoogleResultCount(true);
-                        break;
+                 case "suggestedBid":
+                 keywordRequest.setSuggestedBid(true);
+                 break;
 
-                    case "googleInTitleCount":
-                        keywordRequest.setGoogleInTitleCount(true);
+                 case "googleResultCount":
+                 keywordRequest.setGoogleResultCount(true);
+                 break;
+
+                 case "googleInTitleCount":
+                 keywordRequest.setGoogleInTitleCount(true);
+                 }*/
+
+                if (field.equals("searchVolume")) {
+                    keywordRequest.setSearchVolume(true);
+                } else if (field.equals("competition")) {
+                    keywordRequest.setCompetition(true);
+                } else if (field.equals("suggestedBid")) {
+                    keywordRequest.setSuggestedBid(true);
+                } else if (field.equals("googleResultCount")) {
+                    keywordRequest.setGoogleResultCount(true);
+                } else if (field.equals("googleInTitleCount")) {
+                    keywordRequest.setGoogleInTitleCount(true);
                 }
             }
 
