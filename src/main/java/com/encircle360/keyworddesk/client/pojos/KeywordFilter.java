@@ -2,6 +2,7 @@ package com.encircle360.keyworddesk.client.pojos;
 
 import net.sf.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author <a href="mailto:p.huetter@encircle360.com">Patrick Huetter</a>
  */
-public class KeywordFilter {
+public class KeywordFilter implements Serializable {
 
     public static final String FILTER_TEXT_ILIKE = "ILike";
     public static final String FILTER_TEXT_NOT_ILIKE = "NotILike";

@@ -1,11 +1,13 @@
 package com.encircle360.keyworddesk.client.pojos;
 
+import java.io.Serializable;
+
 /**
  * Keyword POJO. This class represents a keyword with its data.
  *
  * @author <a href="mailto:p.huetter@encircle360.com">Patrick Huetter</a>
  */
-public class Keyword {
+public class Keyword implements Serializable {
 
     private String keyword;
     private Long searchVolume;

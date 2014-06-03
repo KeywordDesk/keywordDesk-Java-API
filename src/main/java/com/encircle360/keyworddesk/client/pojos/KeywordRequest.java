@@ -1,11 +1,13 @@
 package com.encircle360.keyworddesk.client.pojos;
 
+import java.io.Serializable;
+
 /**
  * KeywordRequest POJO. This class represents a keyword request.
  *
  * @author <a href="mailto:p.huetter@encircle360.com">Patrick Huetter</a>
  */
-public class KeywordRequest {
+public class KeywordRequest implements Serializable {
 
     private String keyword;
     private Boolean searchVolume;
