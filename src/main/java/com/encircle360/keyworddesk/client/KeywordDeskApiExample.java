@@ -1,5 +1,6 @@
 package com.encircle360.keyworddesk.client;
 
+import com.encircle360.keyworddesk.client.pojos.CreditBalance;
 import com.encircle360.keyworddesk.client.pojos.Keyword;
 import com.encircle360.keyworddesk.client.pojos.KeywordFilter;
 import net.sf.json.JSONArray;
@@ -53,5 +54,8 @@ public class KeywordDeskApiExample {
         for (Keyword keyword : keywordList) {
             System.out.println("Searchvolume of keyword '" + keyword.getKeyword() + "' is " + keyword.getSearchVolume());
         }
+
+        CreditBalance myCreditBalance = apiService.getCreditBalance();
+        System.out.println("I have " + myCreditBalance.getCreditsLeft() + " credits left.");
     }
 }
