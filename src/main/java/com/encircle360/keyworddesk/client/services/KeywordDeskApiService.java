@@ -2,6 +2,7 @@ package com.encircle360.keyworddesk.client.services;
 
 import com.encircle360.keyworddesk.client.pojos.Keyword;
 import com.encircle360.keyworddesk.client.pojos.KeywordFilter;
+import com.encircle360.keyworddesk.client.pojos.KeywordFilterResult;
 import com.encircle360.keyworddesk.client.pojos.KeywordRequest;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -39,10 +40,10 @@ public class KeywordDeskApiService {
     private String token;
 
     // the url for the api login
-    private String urlApiLogin = "http://api.keyworddesk.com/api/login";
+    private String urlApiLogin = "http://localhost:8080/KeyDeskMiddleware/api/login";
 
     // the url to the api base including the version tag for the api version you want to use
-    private String urlApiBase = "http://api.keyworddesk.com/v1";
+    private String urlApiBase = "http://localhost:8080/KeyDeskMiddleware/v1";
 
     /**
      * Constructor wich does a login for you. Do only login with this method when your token is expired or you login the first time.
@@ -252,20 +253,31 @@ public class KeywordDeskApiService {
      * @return an ArrayList wich holds all the keyword-objects.
      */
     public ArrayList<Keyword> filterKeywords(KeywordFilter filter) {
+        KeywordFilterResult result = this.filter(filter);
+        return result.getKeywords();
+    }
+
+    public KeywordFilterResult filter(KeywordFilter filter) {
         String jsonString = filter.toJSON();
         ArrayList<Keyword> keywordResultList = null;
+        KeywordFilterResult result = null;
 
         try {
             String responseContent = this.sendHttpPost(this.getUrlApiBase() + "/filterKeywords", jsonString);
-            JSONArray jsonArray = JSONArray.fromObject(responseContent);
+            JSONObject jsonObject = JSONObject.fromObject(responseContent);
+            JSONArray jsonArray = jsonObject.getJSONArray("keywords");
             keywordResultList = (ArrayList<Keyword>) JSONArray.toCollection(jsonArray, Keyword.class);
+
+            result = new KeywordFilterResult();
+            result.setKeywords(keywordResultList);
+            result.setCount(jsonObject.getInt("count"));
+            result.setAvailableCount(jsonObject.getInt("availableCount"));
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-
-        return keywordResultList;
+        return result;
     }
 
     public String getUrlApiLogin() {
