@@ -1,9 +1,6 @@
 package com.encircle360.keyworddesk.client.services;
 
-import com.encircle360.keyworddesk.client.pojos.Keyword;
-import com.encircle360.keyworddesk.client.pojos.KeywordFilter;
-import com.encircle360.keyworddesk.client.pojos.KeywordFilterResult;
-import com.encircle360.keyworddesk.client.pojos.KeywordRequest;
+import com.encircle360.keyworddesk.client.pojos.*;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.commons.io.IOUtils;
@@ -278,6 +275,20 @@ public class KeywordDeskApiService {
         }
 
         return result;
+    }
+
+    public CreditBalance getCreditBalance() {
+        CreditBalance creditBalance = null;
+        try {
+            String responseContent = this.sendHttpPost(this.getUrlApiBase() + "/getCreditBalance", "");
+            JSONObject jsonObject = JSONObject.fromObject(responseContent);
+            creditBalance = (CreditBalance) JSONObject.toBean(jsonObject, CreditBalance.class);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return creditBalance;
     }
 
     public String getUrlApiLogin() {
