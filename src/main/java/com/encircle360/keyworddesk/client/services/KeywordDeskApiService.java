@@ -277,6 +277,10 @@ public class KeywordDeskApiService {
         return result;
     }
 
+    /**
+     * Returns the actual creditBalance of the api-user.
+     * @return creditBalance object
+     */
     public CreditBalance getCreditBalance() {
         CreditBalance creditBalance = null;
         try {
@@ -289,6 +293,17 @@ public class KeywordDeskApiService {
         }
 
         return creditBalance;
+    }
+
+    /**
+     * Returns true if the current api-user has credits (credits > 0)
+     * @return true or false
+     */
+    public Boolean hasCredits() {
+        if(this.getCreditBalance().getCreditsLeft() > 0) {
+            return true;
+        }
+        return false;
     }
 
     public String getUrlApiLogin() {
