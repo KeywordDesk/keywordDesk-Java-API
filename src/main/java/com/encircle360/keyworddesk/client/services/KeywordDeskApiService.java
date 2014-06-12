@@ -37,10 +37,10 @@ public class KeywordDeskApiService {
     private String token;
 
     // the url for the api login
-    private String urlApiLogin = "http://localhost:8080/KeyDeskMiddleware/api/login";
+    private String urlApiLogin = "http://api.keyworddesk.com/api/login";
 
     // the url to the api base including the version tag for the api version you want to use
-    private String urlApiBase = "http://localhost:8080/KeyDeskMiddleware/v1";
+    private String urlApiBase = "http://api.keyworddesk.com/v1";
 
     /**
      * Constructor wich does a login for you. Do only login with this method when your token is expired or you login the first time.
