@@ -33,6 +33,18 @@ public class KeywordDeskApiService {
     public static final String FIELD_COMPETITION = "competition";
     public static final String FIELD_GOOGLE_RESULT_COUNT = "googleResultCount";
     public static final String FIELD_GOOGLE_INTITLE_COUNT = "googleInTitleCount";
+    public static final String FIELD_SEARCHVOLUME_JANUARY = "searchVolumeJanuary";
+    public static final String FIELD_SEARCHVOLUME_FEBRUARY = "searchVolumeFebruary";
+    public static final String FIELD_SEARCHVOLUME_MARCH = "searchVolumeMarch";
+    public static final String FIELD_SEARCHVOLUME_APRIL = "searchVolumeApril";
+    public static final String FIELD_SEARCHVOLUME_MAY = "searchVolumeMay";
+    public static final String FIELD_SEARCHVOLUME_JUNE = "searchVolumeJune";
+    public static final String FIELD_SEARCHVOLUME_JULY = "searchVolumeJuly";
+    public static final String FIELD_SEARCHVOLUME_AUGUST = "searchVolumeAugust";
+    public static final String FIELD_SEARCHVOLUME_SEPTEMBER = "searchVolumeSeptember";
+    public static final String FIELD_SEARCHVOLUME_OCTOBER = "searchVolumeOctober";
+    public static final String FIELD_SEARCHVOLUME_NOVEMBER = "searchVolumeNovember";
+    public static final String FIELD_SEARCHVOLUME_DECEMBER = "searchVolumeDecember";
 
     private String token;
 
