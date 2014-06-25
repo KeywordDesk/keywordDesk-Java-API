@@ -179,16 +179,40 @@ public class KeywordDeskApiService {
                  keywordRequest.setGoogleInTitleCount(true);
                  }*/
 
-                if (field.equals("searchVolume")) {
+                if (field.equals(FIELD_SEARCHVOLUME)) {
                     keywordRequest.setSearchVolume(true);
-                } else if (field.equals("competition")) {
+                } else if (field.equals(FIELD_COMPETITION)) {
                     keywordRequest.setCompetition(true);
-                } else if (field.equals("suggestedBid")) {
+                } else if (field.equals(FIELD_SUGGESTEDBID)) {
                     keywordRequest.setSuggestedBid(true);
-                } else if (field.equals("googleResultCount")) {
+                } else if (field.equals(FIELD_GOOGLE_RESULT_COUNT)) {
                     keywordRequest.setGoogleResultCount(true);
-                } else if (field.equals("googleInTitleCount")) {
+                } else if (field.equals(FIELD_GOOGLE_INTITLE_COUNT)) {
                     keywordRequest.setGoogleInTitleCount(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_JANUARY)) {
+                    keywordRequest.setSearchVolumeJanuary(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_FEBRUARY)) {
+                    keywordRequest.setSearchVolumeFebruary(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_MARCH)) {
+                    keywordRequest.setSearchVolumeMarch(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_APRIL)) {
+                    keywordRequest.setSearchVolumeApril(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_MAY)) {
+                    keywordRequest.setSearchVolumeMay(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_JUNE)) {
+                    keywordRequest.setSearchVolumeJune(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_JULY)) {
+                    keywordRequest.setSearchVolumeJuly(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_AUGUST)) {
+                    keywordRequest.setSearchVolumeAugust(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_SEPTEMBER)) {
+                    keywordRequest.setSearchVolumeSeptember(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_OCTOBER)) {
+                    keywordRequest.setSearchVolumeOctober(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_NOVEMBER)) {
+                    keywordRequest.setSearchVolumeNovember(true);
+                } else if (field.equals(FIELD_SEARCHVOLUME_DECEMBER)) {
+                    keywordRequest.setSearchVolumeDecember(true);
                 }
             }
 
