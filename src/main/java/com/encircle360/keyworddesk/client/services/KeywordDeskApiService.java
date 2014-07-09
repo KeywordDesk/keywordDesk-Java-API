@@ -342,6 +342,29 @@ public class KeywordDeskApiService {
         return false;
     }
 
+    /**
+     * Order keyword-data (or request refreshing of data) wich isn't in the keyworddesk database. You'll get a push notification to the url you specified in your api backend if the job is completed, so you don't need to pull the api.
+     * @param keywordRequest
+     * @return the job id of the created job for this request or null if request failed
+     */
+    public String orderKeywordData(KeywordRequest keywordRequest) {
+
+        String jsonString = JSONObject.fromObject(keywordRequest).toString();
+        String jobId = null;
+
+        try {
+            String responseContent = this.sendHttpPost(this.getUrlApiBase() + "/orderKeywordData", jsonString);
+            JSONObject jsonObject = JSONObject.fromObject(responseContent);
+            JSONObject jobCreated = (JSONObject) jsonObject.get("jobCreated");
+            jobId = jobCreated.getString("id");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return jobId;
+    }
+
     public String getUrlApiLogin() {
         return urlApiLogin;
     }
