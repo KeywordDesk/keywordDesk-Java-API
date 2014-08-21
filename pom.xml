@@ -51,9 +51,9 @@
 
     <distributionManagement>
         <repository>
-            <id>encircle360-helios</id>
-            <name>encircle360-helios-releases</name>
-            <url>http://repo.encircle360.com/libs-release-local-public</url>
+            <id>bintray</id>
+            <name>keyworddesk-maven-com.keyworddesk.api.keyworddesk-java</name>
+            <url>https://api.bintray.com/maven/keyworddesk/maven/com.keyworddesk.api.keyworddesk-java</url>
         </repository>
     </distributionManagement>
 </project>
